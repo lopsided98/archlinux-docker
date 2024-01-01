@@ -26,6 +26,7 @@ ENV LANG=en_US.UTF-8
 RUN locale-gen && \
     pacman-key --init && \
     pacman-key --populate archlinux && \
-    (pacman-key --populate archlinuxarm || true)
+    (pacman-key --populate archlinuxarm || true) && \
+    echo 68B3537F39A313B3E574D06777193F152BDBE6A6:6: | gpg --homedir /etc/pacman.d/gnupg --allow-weak-key-signatures --import-ownertrust
 
 CMD ["/usr/bin/bash"]
